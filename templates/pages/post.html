@@ -1,0 +1,27 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+
+<!-- Intro Section -->
+
+<div class="w-100 image__background">
+  <div class="container">
+      <div class="row text-center pt-5 pb-5">
+          <h1 class="text-white">{{post.title}}</h1>
+      </div>
+  </div>
+</div>
+
+  <!-- ABOUT SECTION -->
+
+  <div class="w-100 bg-white pt-5 pb-5">
+      <div class="container">
+          <div class="row mb-4">
+                <img src="{{post.post_image.url}}" alt="" class="w-100">
+                <div class="col-12 p-4 w-75">
+                    {{post.content|safe}}
+                </div>
+          </div>
+      </div>
+  </div>
+{% endblock %}

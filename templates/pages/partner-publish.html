@@ -1,0 +1,29 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+
+<!-- Intro Section -->
+
+<div class="w-100 image__background">
+  <div class="container">
+      <div class="row text-center pt-5 pb-5">
+          <h1 class="text-white">¡Está a punto de ser parte de los socios!</h1>
+      </div>
+  </div>
+</div>
+
+  <!-- ABOUT SECTION -->
+
+  <div class="w-100 bg-white pt-5 pb-5">
+    <div class="container">
+      <h2 class="main__text__color pb-4 text-center">Detalles sobre su perfil</h2>
+      <div class="row mb-4">
+        <form method="post" enctype="multipart/form-data">
+            {% csrf_token %}
+            {{ form.as_p }}
+            <button type="submit" class="btn main__btn">Publicar</button>
+        </form>
+      </div>
+    </div>
+  </div>
+{% endblock %}

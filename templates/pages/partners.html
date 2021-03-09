@@ -1,0 +1,75 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+
+<!-- Intro Section -->
+
+<div class="w-100 image__background">
+  <div class="container">
+      <div class="row text-center pt-5 pb-5">
+          <h1 class="text-white" data-aos="fade-right" data-aos-delay="500">Conoce gente con locales</h1>
+      </div>
+  </div>
+</div>
+
+<!-- Mission Section -->
+
+<div class="w-100 bg-white pt-5 pb-5">
+    <div class="container">
+        <div class="row row-cols-1 row-cols-md-2 row-cols-lg-4 mb-5">
+          {% for partner in partners %}
+          <div class="col-sm mb-3" data-aos="zoom-out" data-aos-delay="700">
+            <div class="col-12 bg-white rounded shadow text-center d-flex flex-column align-items-center justify-content-center p-3">
+                <div class="col partners__icon">
+                    <img src="{{partner.profile_image.url}}" alt="" class="w-75">
+                </div>
+              <h5>{{partner.name}} {{partner.last_name}}</h5>
+              <p>{{partner.phone}}<br>
+              {{partner.email}}<br></p>
+              <a href="{% url 'partner' partner.id %}" class="btn main__btn">Ver perfil</a>
+            </div>
+          </div>
+          {% endfor %}
+
+        </div>
+
+        <div class="col-12">
+            <nav aria-label="Page navigation example">
+            {% if partners.has_other_pages %}
+              <ul class="pagination">
+                  {% if partners.has_previous %}
+                      <li class="page-item">
+                          <a href="?page={{partners.previous_page_number}}" class="page-link"><span aria-hidden="true">&laquo;</span></a>
+                      </li>
+                  {% else %}
+                      <li class="page-item disabled">
+                          <a class="page-link">&laquo;</a>
+                      </li>
+                  {% endif %}
+                  {% for i in partners.paginator.page_range %}
+                      {% if partners.number == i %}
+                          <li class="page-item active">
+                              <a class="page-link">{{i}}</a>
+                          </li>
+                      {% else %}
+                          <li class="page-item">
+                              <a href="?page={{i}}" class="page-link">{{i}}</a>
+                          </li>
+                      {% endif %}
+                  {% endfor %}
+                  {% if partners.has_next %}
+                      <li class="page-item">
+                          <a href="?page={{partners.next_page_number}}" class="page-link"><span aria-hidden="true">&raquo;</span></a>
+                      </li>
+                  {% else %}
+                      <li class="page-item disabled">
+                          <a class="page-link">&raquo;</a>
+                      </li>
+                  {% endif %}
+              </ul>
+              {% endif %}
+          </nav>
+      </div>
+    </div>
+</div>
+{% endblock %}

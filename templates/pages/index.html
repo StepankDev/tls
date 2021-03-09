@@ -1,0 +1,119 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+
+<!-- Intro Section -->
+
+<div class="w-100 main__color">
+    <div class="container mb-0 pb-0">
+        <div class="row row-cols-1 row-cols-2">
+            <div class="col-12 col-lg-8 align-self-lg-center" data-aos="fade-right" data-aos-delay="500" id="index__text">
+                <h1 class="mb-4 text-white">¡Ahora encontrar punto de venta es más fácil que nunca!</h1>
+                <a type="button" href="{% url 'register' %}" class="btn slider__btn pl-3 pr-3">Resgístrate ahora</a>
+            </div>
+            <div class="col-12 col-lg-4 d-flex justify-content-end" data-aos="fade-left" data-aos-delay="1000">
+                <img src="{% static 'img/front-page-woman.png' %}" alt="" class="img-fluid" id="index__image">
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Mission Section -->
+
+<div class="w-100 bg-white">
+    <div class="container text-center align-self-center">
+        <h2 class="pt-5 mb-4 text-secondary" data-aos="fade-down" data-aos-delay="500">¿Qué es SuPuestito?</h2>
+        <p class="text-secondary text-center pb-5" data-aos="fade-up" data-aos-delay="1000">
+            Somos plataforma digital que impulsa el crecimiento de los negocios emergentes, brindando ayuda 
+            con la búsqueda de puntos de venta accesibles. Adicionalmente, proveemos la información necesaria
+            de todo lo relacionado a los negocios para que tu emprendimiendo tenga éxito.</p>
+    </div>
+</div>
+
+<!-- Vision Section -->
+
+<div class="w-100 pt-5 pb-5 light__grey">
+    <div class="container text-center align-self-center">
+        <h2 class="mb-4 text-secondary" data-aos="fade-down" data-aos-delay="500">Beneficios</h2>
+        <div class="row row-cols-1 row-cols-lg-4 mb-4">
+            <div class="col mb-4">
+                <div class="col bg-white rounded shadow p-4 d-flex flex-column" data-aos="zoom-out" data-aos-delay="600">
+                    <i class="fas fa-3x fa-people-arrows pb-4 main__text__color"></i>
+                    <span class="fw-bold main__text__color">Sin intermediarios</span>
+                </div>
+            </div>
+            <div class="col mb-4">
+                <div class="col bg-white rounded shadow p-4 d-flex flex-column" data-aos="zoom-out" data-aos-delay="700">
+                    <i class="fas fa-3x fa-piggy-bank pb-4 main__text__color"></i>
+                    <span class="fw-bold main__text__color">Precio accesible</span>
+                </div>
+            </div>
+            <div class="col mb-4">
+                <div class="col bg-white rounded shadow p-4 d-flex flex-column" data-aos="zoom-out" data-aos-delay="800">
+                    <i class="fas fa-3x fa-file-alt pb-4 main__text__color"></i>
+                    <span class="fw-bold main__text__color">Informativo</span>
+                </div>
+            </div>
+            <div class="col mb-4">
+                <div class="col bg-white rounded shadow p-4 d-flex flex-column" data-aos="zoom-out" data-aos-delay="900">
+                    <i class="fas fa-3x fa-users pb-4 main__text__color"></i>
+                    <span class="fw-bold main__text__color">Crece tu red de contactos</span>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Latest Places Publications -->
+
+<div class="w-100 bg-white pb-5">
+    <div class="container">
+        <h2 class="pt-5 mb-4 text-secondary text-center" data-aos="fade-down" data-aos-delay="500">Puestos recientes</h2>
+        <div class="row row-cols-1 row-cols-lg-3">
+            {% for rent in rents|slice:6 %}
+            <div class="col-sm mb-4 text-center"  href="{% url 'rent' rent.id %}" data-aos="zoom-out" data-aos-delay="700">
+                <div class="card overflow-hidden border-0 shadow">
+                <img src="{{rent.main_image.url}}" alt="" class="w-100">
+                <div class="col-12 mt-2 pb-4">
+                    <h4>{{rent.title}}</h4>
+                    <span>{{rent.date_published}}</span>
+                    <p class="text-truncate">{{post.content}}</p>
+                    <a href="{% url 'rent' rent.id %}" class="btn main__btn">Ver el puestito</a>
+                </div>
+                </div>
+            </div>
+            {% endfor %}
+        </div>
+        <div class="col-12 text-center">
+            <a href="{% url 'renting' %}" class="btn secondary__btn" data-aos="zoom-out" data-aos-delay="500">Ver más puntos</a>
+        </div>
+    </div>
+</div>
+
+<!-- Latest Articles -->
+
+<div class="w-100 bg-white image__background">
+    <div class="container">
+        <h2 class="pt-5 mb-4 text-white text-center" data-aos="fade-down" data-aos-delay="500">Últimas publicaciones</h2>
+        <div class="row row-cols-1 row-cols-lg-3 pb-5">
+            
+            {% for post in posts|slice:3 %}
+            <div class="col-sm mb-4 text-center"  href="{% url 'post' post.id %}" data-aos="zoom-out" data-aos-delay="700">
+                <div class="card overflow-hidden border-0 shadow">
+                <img src="{{post.post_image.url}}" alt="" class="w-100">
+                <div class="col-12 mt-2 pb-4">
+                    <h4>{{post.title}}</h4>
+                    <span>{{post.date_published}}</span>
+                    <p class="text-truncate">{{post.content}}</p>
+                    <a href="{% url 'post' post.id %}" class="btn main__btn">Leer Post</a>
+                </div>
+                </div>
+            </div>
+            {% endfor %}
+
+
+        </div>
+    </div>
+</div>
+
+{% endblock %}

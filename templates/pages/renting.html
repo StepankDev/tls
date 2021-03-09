@@ -1,0 +1,101 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+
+<!-- Intro Section -->
+
+<div class="w-100 image__background">
+    <div class="container">
+        <div class="row text-center pt-5 pb-5">
+            <h1 class="text-white" data-aos="fade-right" data-aos-delay="500">Puntos de venta disponibles</h1>
+        </div>
+    </div>
+</div>
+
+<!-- Mission Section -->
+
+<div class="w-100 bg-white pt-5 pb-5">
+    <div class="container">
+        <div class="row row-cols-1 row-cols-lg-2">
+            <div class="col-12 col-lg-3 mb-5">
+                <h6 class="main__text__color">Ciudad</h6>
+                <input type="text" class="form-control mb-2" value="Lima" readonly>
+                <!--<h6 class="main__text__color">Distrito</h6>
+                <select class="form-select mb-2" aria-label="Default select example">
+                  <option value="1">Jesus María</option>
+                  {% for key,value in district_choices.items %}
+                      <option value="{{key}}">{{value}}</option>
+                  {% endfor %}
+                </select>
+                <h6 class="main__text__color">Tipo de pago</h6>
+                <select class="form-select mb-2" aria-label="Default select example">
+                  <option value="1">Mensual</option>
+                  <option value="2">Semanal</option>
+                  <option value="3">Diario</option>
+                </select>
+                <button href="" class="btn secondary__btn p-1 ps-3 pe-3 mt-4">Buscar puestos</button>-->
+            </div>
+            <div class="col-12 col-lg-9">
+
+                {% for rent in rents %}
+                <!----- Place publication ----->
+                <div class="d-flex flex-column flex-lg-row rounded shadow bg-white p-3 mb-3" data-aos="zoom-out" data-aos-delay="700">
+                    <div class="col-12 col-lg-4 overflow-hidden me-4">
+                        <img src="{{rent.main_image.url}}" class="w-100" alt="...">
+                    </div>
+                    <div class="col-8">
+                        <h5 class="fw-bold">S/. {{rent.price}}</h5>
+                        <p>
+                          <b>Publicado:</b> {{rent.date_published}}
+                          <br /><b>Dirección:</b> {{rent.address}}
+                          <br /><b>Referencias:</b> {{rent.reference}}
+                          <br /><b>Modalidad de pago:</b> {{rent.payment}}
+                        </p>
+                        <a href="{% url 'rent' rent.id %}" class="btn main__btn p-1 ps-2 pe-2">Ver puesto</a>
+                    </div>
+                </div>
+                {% endfor %}
+
+                <div class="col-12">
+                    <nav aria-label="Page navigation example">
+                      {% if rents.has_other_pages %}
+                        <ul class="pagination">
+                            {% if rents.has_previous %}
+                                <li class="page-item">
+                                    <a href="?page={{rents.previous_page_number}}" class="page-link"><span aria-hidden="true">&laquo;</span></a>
+                                </li>
+                            {% else %}
+                                <li class="page-item disabled">
+                                    <a class="page-link">&laquo;</a>
+                                </li>
+                            {% endif %}
+                            {% for i in rents.paginator.page_range %}
+                                {% if rents.number == i %}
+                                    <li class="page-item active">
+                                        <a class="page-link">{{i}}</a>
+                                    </li>
+                                {% else %}
+                                    <li class="page-item">
+                                        <a href="?page={{i}}" class="page-link">{{i}}</a>
+                                    </li>
+                                {% endif %}
+                            {% endfor %}
+                            {% if rents.has_next %}
+                                <li class="page-item">
+                                    <a href="?page={{rents.next_page_number}}" class="page-link"><span aria-hidden="true">&raquo;</span></a>
+                                </li>
+                            {% else %}
+                                <li class="page-item disabled">
+                                    <a class="page-link">&raquo;</a>
+                                </li>
+                            {% endif %}
+                        </ul>
+                        {% endif %}
+                    </nav>
+                </div>
+
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

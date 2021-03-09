@@ -1,0 +1,43 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+
+<!-- Intro Section -->
+
+<div class="w-100 image__background">
+  <div class="container">
+      <div class="row text-center pt-5 pb-5">
+          <h1 class="text-white">¡Está a punto de publicar su puestito!</h1>
+      </div>
+  </div>
+</div>
+
+  <!-- ABOUT SECTION -->
+
+  <div class="w-100 bg-white pt-5 pb-5">
+    <div class="container">
+      <h2 class="main__text__color pb-4 text-center">Detalles sobre su puestito</h2>
+      <div class="row mb-4">
+        <form class="w-100" action="">
+            <div class="mb-3">
+                <input class="form-control" type="file" id="formFile">
+            </div>
+            <input type="text" class="form-control mb-3" id="client__name" placeholder="Nombre">
+            <input type="text" class="form-control mb-3" id="client__lastname" placeholder="Apellido">
+            <input type="text" class="form-control mb-3" id="client__number" placeholder="Teléfono móvil">
+            <input type="text" class="form-control mb-3" id="client__number" placeholder="Dirección del puestito">
+            <input type="text" class="form-control mb-3" id="client__number" placeholder="Referencias">
+            <select class="form-select mb-3" aria-label="Default select example">
+              <option selected>Modalidad de pago</option>
+              <option value="1">Diario</option>
+              <option value="2">Semanal</option>
+              <option value="3">Mensual</option>
+            </select>
+            <input type="email" class="form-control mb-3" id="client__email" placeholder="Correo electrónico">
+            <textarea class="form-control mb-3" style="height:200px;" placeholder="Descripción de su puestito"></textarea>
+            <button type="submit" class="btn text-white main__color">Publicar su puestito en alquiler</button>
+        </form>
+      </div>
+    </div>
+  </div>
+{% endblock %}

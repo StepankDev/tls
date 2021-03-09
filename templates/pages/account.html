@@ -1,0 +1,55 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+
+<!-- Intro Section -->
+
+<div class="w-100 image__background">
+  <div class="container">
+      <div class="row text-center pt-5 pb-5">
+          <h1 class="text-white">Detalles de su cuenta</h1>
+      </div>
+  </div>
+</div>
+
+  <!-- ABOUT SECTION -->
+
+  <div class="w-100 bg-white pt-5 pb-5">
+    <div class="container">
+      <h2 class="main__text__color pb-4 text-center">Mi cuenta</h2>
+      <div class="row mb-4">
+        <form class="w-100" action="">
+            <div class="mb-3">
+                <input class="form-control" type="file" id="formFile">
+            </div>
+            <input type="text" class="form-control mb-3" id="client__name" placeholder="Nombre">
+            <input type="text" class="form-control mb-3" id="client__lastname" placeholder="Apellido">
+            <input class="form-control mb-3" list="genderList" id="patien_gender" placeholder="Seleccione su genero">
+            <datalist id="genderList">
+                <option value="Femenino">
+                <option value="Masculino">
+            </datalist>
+            <label>Fecha de nacimiento</label>
+            <input type="date" class="form-control mb-3 w-25">
+            <input type="text" class="form-control mb-3" id="client__number" placeholder="Teléfono móvil">
+            <input type="email" class="form-control mb-3" id="client__email" placeholder="Correo electrónico">
+            <input type="text" class="form-control mb-3" id="client__address" placeholder="Dirección de domicilio">
+            <input type="text" class="form-control mb-3" id="client__business" placeholder="Razón social de su negocio">
+            <div class="col-12 d-flex align-items-baseline">
+                <i class="fab fa-facebook me-2 main__text__color"></i>
+                <input type="email" class="form-control mb-3" id="client__email" placeholder="Facebook link">
+            </div>
+            <div class="col-12 d-flex align-items-baseline">
+                <i class="fab fa-instagram me-2 main__text__color"></i>
+                <input type="text" class="form-control mb-3" id="client__address" placeholder="Instagram link">
+            </div>
+            <div class="col-12 d-flex align-items-baseline">
+                <i class="fab fa-youtube me-2 main__text__color"></i>
+                <input type="text" class="form-control mb-3" id="client__address" placeholder="YouTube link">
+            </div>
+            <button type="submit" class="btn text-white main__color">Actualizar datos</button>
+        </form>
+      </div>
+    </div>
+  </div>
+{% endblock %}

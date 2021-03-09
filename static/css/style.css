@@ -1,0 +1,102 @@
+html {
+    overflow-x:hidden;
+    width:100vw;
+}
+
+body {
+    width:100vw;
+}
+
+#colaghp__screen {
+    background-image: url('../../static/img/perulab-background.jpg');
+    background-size:cover;
+    background-position:center center;
+    min-height:80vh;
+}
+
+li {
+    list-style-type:none;
+}
+
+.product__line__icon {
+    width:80%;
+    height:auto;
+}
+
+.main__color {
+    background-color:#00a85b;
+}
+
+.secondary__color {
+    background-color:#ebf5fa;
+}
+
+.main__text__color {
+    color:#00a85b;
+}
+
+.awards {
+    width:200px;
+    height:auto;
+}
+
+.product__price {
+    font-size:27px;
+    font-weight:600;
+    color:#007dc5;
+}
+
+/**** VIDEO SETTINGS ****/
+
+.colaghp__video__container {
+    position: relative;
+    width: 100%;
+    height: 0;
+    padding-bottom: 56.25%;
+}
+
+.colaghp__video {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+}
+
+.esopass__numbers {
+    font-size:40px;
+    font-weight:600;
+}
+
+.esopass__card {
+    min-height:200px;
+}
+
+/**** SLIDER SETTINGS ****/
+
+.section-padding {
+    padding:60px 0;
+}
+    /*.brand-carousel {
+        margin-top: 15%;
+    }*/
+
+    .owl-dots {
+        text-align: center;
+        margin-top: 4%;
+    }
+
+    .owl-dot {
+        display: inline-block;
+        height: 10px !important;
+        width: 10px !important;
+        background-color: #878787 !important;
+        opacity: 0.8;
+        border-radius: 50%;
+        margin: 0 5px;
+    }
+
+    .owl-dot.active {
+        background-color: #007dc5 !important;
+    }
+    

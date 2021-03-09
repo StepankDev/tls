@@ -1,0 +1,146 @@
+:root {
+    --main-color: #009fa8;
+    --secondary-button-selected:#00b8c2;
+    --light-grey:#f7f7f7;
+    --secondary-color:#fff324;
+  }
+
+  #header {
+      background:var(--main-color) !important;
+  }
+#branding h1 {
+    color:#ffffff;
+}
+
+.module h2, .module caption, .inline-group h2 {
+    background:var(--main-color) !important;
+}
+
+html {
+    overflow-x:hidden;
+    width:100vw;
+}
+
+body {
+    width:100vw;
+}
+
+li {
+    list-style-type:none;
+}
+
+.product__line__icon {
+    width:80%;
+    height:auto;
+}
+
+.main__color {
+    background-color:var(--main-color);
+}
+
+.secondary__color {
+    background-color:#ebf5fa;
+}
+
+.main__text__color {
+    color:var(--main-color);
+}
+
+.main__btn {
+    border:1px solid var(--main-color);
+    color:var(--main-color);
+}
+
+.main__btn:hover {
+    border:1px solid var(--main-color);
+    color:#ffffff;
+    background-color:var(--main-color);
+}
+
+.slider__btn {
+    border:1px solid #ffffff;
+    color:#ffffff;
+}
+
+.slider__btn:hover {
+    background-color:#ffffff;
+    color:var(--main-color);
+}
+
+.secondary__btn {
+    background-color:var(--main-color);
+    color:#ffffff;
+}
+
+.secondary__btn:hover {
+    background-color:var(--secondary-button-selected);
+    color:#ffffff;
+}
+
+.light__grey {
+    background-color:var(--light-grey);
+}
+
+.image__background {
+    background-image:url('/static/img/background.jpg');
+    background-position: center center;
+    background-size:cover;
+}
+
+.partners__icon {
+    width:150px;
+    height:150px;
+    border-radius:50%;
+    overflow:hidden;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+}
+
+.partners__icon img {
+    height:100% !important;
+    width:auto !important;
+}
+
+.profile__image {
+    width:200px;
+    height:200px;
+    border-radius:50%;
+    overflow:hidden;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+}
+
+.profile__image img {
+    height:100% !important;
+    width:auto !important;
+}
+/**** SLIDER SETTINGS ****/
+
+.section-padding {
+    padding:60px 0;
+}
+    /*.brand-carousel {
+        margin-top: 15%;
+    }*/
+
+    .owl-dots {
+        text-align: center;
+        margin-top: 4%;
+    }
+
+    .owl-dot {
+        display: inline-block;
+        height: 10px !important;
+        width: 10px !important;
+        background-color: #878787 !important;
+        opacity: 0.8;
+        border-radius: 50%;
+        margin: 0 5px;
+    }
+
+    .owl-dot.active {
+        background-color: #007dc5 !important;
+    }
+    

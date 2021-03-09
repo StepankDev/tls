@@ -1,0 +1,85 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+
+<!-- Intro Section -->
+
+<div class="w-100 image__background">
+  <div class="container">
+      <div class="row text-center pt-5 pb-5">
+          <h1 class="text-white" data-aos="fade-right" data-aos-delay="700">Escoge el plan que más le conviene</h1>
+      </div>
+  </div>
+</div>
+
+  <!-- ABOUT SECTION -->
+
+  <div class="w-100 bg-white pt-5 pb-5">
+      <div class="container">
+          <h2 class="main__text__color pb-4 text-center">Planes</h2>
+          <div class="row row-cols-1 row-cols-lg-3 mb-4">
+
+                <!-- Plan 1 -->
+              <div class="col">
+                  <div class="col text-center bg-white rounded shadow pt-4 ps-2 pe-2 pb-4" data-aos="zoom-out" data-aos-delay="700">
+                      <h3 class="main__text__color">Básico</h3>
+                      <span class="fs-1 fw-bold main__text__color">S/. 22</span>
+                      <ul class="list-group list-group-flush">
+                          <li class="list-group-item">Duración 30 días</li>
+                          <li class="list-group-item">Preferencia estándar</li>
+                          <li class="list-group-item">Foto estándar</li>
+                          <li class="list-group-item">Hasta 3 fotos permitidos</li>
+                          <li class="list-group-item">-</li>
+                          <li class="list-group-item">-</li>
+                          <li class="list-group-item">-</li>
+                          <li class="list-group-item">-</li>
+                          <li class="list-group-item">-</li>
+                      </ul>
+                      <a class="btn main__btn p-1 ps-2 pe-2" aria-current="page" href="{% url 'basicCheckOut' %}">Escoger el plan</a>
+                  </div>
+              </div>
+
+                <!-- Plan 2 -->
+              <div class="col">
+                  <div class="col text-center bg-white rounded shadow pt-4 ps-2 pe-2 pb-4" data-aos="zoom-out" data-aos-delay="900">
+                      <h3 class="main__text__color">Intermedio</h3>
+                      <span class="fs-1 fw-bold main__text__color">S/. 35</span>
+                      <ul class="list-group list-group-flush">
+                          <li class="list-group-item">Duración 40 días</li>
+                          <li class="list-group-item">Elevada preferencia</li>
+                          <li class="list-group-item">Foto estándar</li>
+                          <li class="list-group-item">Hasta 5 fotos permitidos</li>
+                          <li class="list-group-item">-</li>
+                          <li class="list-group-item">-</li>
+                          <li class="list-group-item">-</li>
+                          <li class="list-group-item">-</li>
+                          <li class="list-group-item">-</li>
+                      </ul>
+                      <a class="btn main__btn p-1 ps-2 pe-2 disabled" aria-current="page" href="{% url 'intermediateCheckOut' %}">Escoger el plan</a>
+                  </div>
+              </div>
+
+                <!-- Plan 2 -->
+              <div class="col">
+                  <div class="col text-center bg-white rounded shadow pt-4 ps-2 pe-2 pb-4" data-aos="zoom-out" data-aos-delay="1100">
+                      <h3 class="main__text__color">Avanzado</h3>
+                      <span class="fs-1 fw-bold main__text__color">S/. 50</span>
+                      <ul class="list-group list-group-flush">
+                          <li class="list-group-item">Duración 50 días</li>
+                          <li class="list-group-item">Alta preferencia</li>
+                          <li class="list-group-item">Foto estándar</li>
+                          <li class="list-group-item">Fotos ilimitadas</li>
+                          <li class="list-group-item">-</li>
+                          <li class="list-group-item">-</li>
+                          <li class="list-group-item">-</li>
+                          <li class="list-group-item">-</li>
+                          <li class="list-group-item">-</li>
+                      </ul>
+                      <a class="btn main__btn p-1 ps-2 pe-2 disabled" aria-current="page" href="{% url 'advancedCheckOut' %}">Escoger el plan</a>
+                  </div>
+              </div>
+
+          </div>
+      </div>
+  </div>
+{% endblock %}
