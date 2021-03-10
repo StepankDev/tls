@@ -86,7 +86,7 @@ def register(request):
             return redirect('index')
     else:
         form = SignUpForm()
-    return render(request, 'pages/register.html', {'form': form})
+    return render(request, 'pages/success.html', {'form': form})
 
 @login_required(login_url='login')
 def account(request):
