@@ -138,3 +138,8 @@ MEDIA_URL = '/media/'
 
 # CKEditor Configurations
 CKEDITOR_UPLOAD_PATH = "uploads/"
+
+try:
+    from .local_settings import *
+except ImportError:
+    pass
