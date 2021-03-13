@@ -118,6 +118,38 @@ li {
     height:100% !important;
     width:auto !important;
 }
+
+.rent__image {
+    width:100%;
+    height:200px;
+    overflow:hidden;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+}
+
+.rent__image img {
+    height:auto !important;
+    width:100% !important;
+}
+
+.post__image {
+    width:100%;
+    height:200px;
+    overflow:hidden;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+}
+
+.post__image img {
+    height:auto !important;
+    width:100% !important;
+}
+
+#index__image {
+    width:auto;
+}
 /**** SLIDER SETTINGS ****/
 
 .section-padding {

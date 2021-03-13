@@ -6,9 +6,10 @@ class PartnerInfo(models.Model):
     name = models.CharField(max_length=200)
     last_name = models.CharField(max_length=200)
     phone = models.CharField(max_length=200)
+    document = models.CharField(max_length=200)
     email = models.EmailField()
     date_published = models.DateTimeField(default=datetime.now, blank=True)
-    document = models.CharField(max_length=9)
+    ruc = models.CharField(max_length=9)
 
     business_name = models.CharField(max_length=200)
     business_address = models.CharField(max_length=200)

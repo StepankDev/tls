@@ -106,9 +106,6 @@ def partner(request):
 
 @login_required(login_url='loginBasic')
 def basicCheckOut(request):
- 
-    if not request.user.has_perm('backend.basicCheckOut'):
-        raise PermissionDenied
     
     template_name = 'pages/basic.html'
     
@@ -142,9 +139,6 @@ def payment(request):
     return render(request, 'pages/payment.html')
 
 def partnerPublish(request):
-     
-    if not request.user.has_perm('backend.partnerPublish'):
-        raise PermissionDenied
     
     template_name = 'pages/partner-publish.html'
     
