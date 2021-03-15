@@ -1,5 +1,6 @@
 :root {
-    --main-color: #009fa8;
+    --main-color: #00a85b;
+    /*--main-color: #009fa8;*/
     --secondary-button-selected:#00b8c2;
     --light-grey:#f7f7f7;
     --secondary-color:#fff324;
@@ -38,6 +39,10 @@ li {
 
 .main__color {
     background-color:var(--main-color);
+}
+
+.main__color__background {
+    background-image:linear-gradient(#00a85b, #009fa8);
 }
 
 .secondary__color {
