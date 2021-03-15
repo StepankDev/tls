@@ -89,6 +89,10 @@ li {
     background-size:cover;
 }
 
+.full__screen {
+    height:100vh;
+}
+
 .partners__icon {
     width:150px;
     height:150px;
