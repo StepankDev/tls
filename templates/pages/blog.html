@@ -63,19 +63,20 @@
 
         <!-- Finance Section -->
         <div class="row row-cols-1 row-cols-lg-3">
-            {% for post in posts %}
-            <div class="col-sm mb-4"  href="{% url 'post' post.id %}" data-aos="zoom-out" data-aos-delay="700">
-                <div class="card overflow-hidden border-0 shadow">
-                <img src="{{post.post_image.url}}" alt="" class="w-100">
-                <div class="col-12 mt-2 pb-4">
-                    <h4>{{post.title}}</h4>
-                    <span>{{post.date_published}}</span>
-                    <p class="text-truncate">{{post.content}}</p>
-                    <a href="{% url 'post' post.id %}" class="btn main__btn">Leer Post</a>
-                </div>
-                </div>
-            </div>
-            {% endfor %}
+          {% for post in posts %}
+          <div class="col-sm mb-4 text-center"  href="{% url 'post' post.id %}" data-aos="zoom-out" data-aos-delay="700">
+              <div class="card overflow-hidden border-0 shadow">
+                  <div class="post__image">
+                      <img src="{{post.post_image.url}}" alt="">
+                  </div>
+              <div class="col-12 mt-2 pb-4 d-flex flex-column justify-content-center align-items-center">
+                  <h4>{{post.title}}</h4>
+                  <span>{{post.date_published}}</span>
+                  <a href="{% url 'post' post.id %}" class="btn mt-2 main__btn">Leer Post</a>
+              </div>
+              </div>
+          </div>
+          {% endfor %}
         </div>
 
         <div class="col-12">
