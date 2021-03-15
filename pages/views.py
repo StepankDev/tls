@@ -7,8 +7,10 @@ from .forms import SignUpForm
 from .forms import partnerForm
 from .forms import SignUpFormBasic
 from .forms import basicRent
+from contacts.models import *
 from django.http import HttpResponseRedirect
 from django.urls import reverse
+from django.core.mail import send_mail
 
 from django.contrib.auth import login as user_login, authenticate
 from django.contrib.auth.forms import UserCreationForm
@@ -36,9 +38,6 @@ def blog(request):
 
 def post(request):
     return render(request, 'pages/post.html')
-
-def contact(request):
-    return render(request, 'pages/contact.html')
 
 # MAIN LOGIN FROM FRONT PAGE
 def login(request):
@@ -83,10 +82,10 @@ def register(request):
             raw_password = form.cleaned_data.get('password1')
             user = authenticate(username=username, password=raw_password)
             user_login(request, user)
-            return redirect('index')
+            return redirect('success')
     else:
         form = SignUpForm()
-    return render(request, 'pages/success.html', {'form': form})
+    return render(request, 'pages/register.html', {'form': form})
 
 @login_required(login_url='login')
 def account(request):
@@ -138,6 +137,10 @@ def advancedCheckOut(request):
 def payment(request):
     return render(request, 'pages/payment.html')
 
+def payment_partner(request):
+    return render(request, 'pages/payment-partner.html')
+
+@login_required(login_url='loginBasic')
 def partnerPublish(request):
     
     template_name = 'pages/partner-publish.html'
@@ -147,7 +150,7 @@ def partnerPublish(request):
         form = partnerForm(request.POST, request.FILES)
         if form.is_valid():
             object = form.save()
-            return redirect('payment')
+            return redirect('payment_partner')
             if not request.is_ajax():
                 # reload the page
                 next = request.META['PATH_INFO']
@@ -161,4 +164,79 @@ def partnerPublish(request):
         'object': object,
         })
 
+def partnerPricing(request):
+    return render(request, 'pages/partner-pricing.html')
+
+
+
+def contact(request):
+    if request.method == 'POST':
+        name = request.POST['Name']
+        last_name = request.POST['LastName']
+        phone = request.POST['Phone']
+        email = request.POST['Email']
+        subject = request.POST['Subject']
+        message = request.POST['Message']
+
+        contact = Contact(name=name, last_name=last_name, phone=phone, email=email, subject=subject, message=message)
+        contact.save()
+        send_mail(
+            subject,
+            'Nuevo mensaje de usuario. ' + name + last_name + phone + email + message +' Muchas gracias',
+            '',
+            [email, 'ivanstepanchuk1994@gmail.com'],
+            fail_silently=False
+        )
+
+        return redirect('contact')
+
+    return render(request, 'pages/contact.html')
+
+
+def contactRent(request):
+    if request.method == 'POST':
+        name = request.POST['Name']
+        last_name = request.POST['LastName']
+        phone = request.POST['Phone']
+        email = request.POST['Email']
+        subject = request.POST['Subject']
+        message = request.POST['Message']
+
+        contact = Contact(name=name, last_name=last_name, phone=phone, email=email, subject=subject, message=message)
+        contact.save()
+        send_mail(
+            subject,
+            'Nuevo mensaje de usuario. ' + name + last_name + phone + email + message +' Muchas gracias',
+            '',
+            [email, 'ivanstepanchuk1994@gmail.com'],
+            fail_silently=False
+        )
+
+        return redirect('rentingplace')
+
+    return render(request, 'pages/renting_place.html')
+
+
+def contactPartner(request):
+    if request.method == 'POST':
+        name = request.POST['Name']
+        last_name = request.POST['LastName']
+        phone = request.POST['Phone']
+        email = request.POST['Email']
+        subject = request.POST['Subject']
+        message = request.POST['Message']
+
+        contact = Contact(name=name, last_name=last_name, phone=phone, email=email, subject=subject, message=message)
+        contact.save()
+        send_mail(
+            subject,
+            'Nuevo mensaje de usuario. ' + name + last_name + phone + email + message +' Muchas gracias',
+            '',
+            [email, 'ivanstepanchuk1994@gmail.com'],
+            fail_silently=False
+        )
+
+        return redirect('partner')
+
+    return render(request, 'pages/partner.html')
 

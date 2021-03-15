@@ -4,10 +4,16 @@
 
 <!-- Intro Section -->
 
-<div class="w-100 image__background">
-    <div class="container">
-        <div class="row text-center pt-5 pb-5">
-            <h1 class="text-white" data-aos="fade-right" data-aos-delay="500">Puntos de venta disponibles</h1>
+<div class="w-100 pt-5 pb-0 main__color">
+    <div class="container mb-0 pb-0 pt-2">
+        <div class="row row-cols-1 row-cols-lg-2">
+            <div class="col-sm align-self-center col-lg-7 mobile__align" data-aos="fade-right" data-aos-delay="500">
+                <h1 class="mb-4 text-white">¡Conoce los nuevos puntos de venta disponibles para ti!</h1>
+                <a type="button" href="{% url 'register' %}" class="btn slider__btn pl-3 pr-3">Resgístrate ahora</a>
+            </div>
+            <div class="col-sm col-lg-5" data-aos="fade-left" data-aos-delay="1000">
+                <img src="{% static 'img/supuestito-renting.png' %}" alt="" class="img-fluid">
+            </div>
         </div>
     </div>
 </div>

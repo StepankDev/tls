@@ -178,3 +178,8 @@ li {
         background-color: #007dc5 !important;
     }
     
+    @media only screen and (max-width:500px) {
+        .mobile__align {
+            text-align:center;
+        }
+    }

@@ -17,39 +17,46 @@
   <div class="w-100 bg-white pt-5 pb-5">
       <div class="container">
           <h2 class="main__text__color pb-4 text-center">{{rent.title}}</h2>
-          <div class="row row-cols-1 row-cols-lg-2 bg-white rounded shadow mb-4">
-                <div class="col-sm col-lg-8 p-4">
-                    <div class="col mb-3">
-                        <img src="{{rent.main_image.url}}" alt="" class="w-100">
+          <div class="row bg-white rounded shadow mb-4">
+
+                <div class="row row-cols-1 row-cols-lg-2">
+
+                    <div class="col-sm col-lg-7 p-4">
+                        <div class="col-sm mb-3">
+                            <img src="{{rent.main_image.url}}" alt="" class="w-100">
+                        </div>
                     </div>
-                    <div class="col">
+                    <div class="col-sm col-lg-5 p-4">
                         <p class="p-0"><b>Publicado:</b> {{rent.date_published}}</p>
+                        <p class="p-0"><b>Distrito:</b> {{rent.district}}</p>
                         <p class="p-0"><b>Dirección:</b> {{rent.address}}</p>
                         <p class="p-0"><b>Referencias:</b> {{rent.reference}}</p>
                         <p class="p-0"><b>Modalidad de pago:</b> {{rent.payment}}</p>
                         <p class="p-0"><b>Descripción:</b><br />{{rent.description}}</p>
                     </div>
                 </div>
-                <div class="col-sm col-lg-4 p-4">
+                <div class="row p-4">
                     <h5 class="pb-3 main__text__color">Contactar al anunciante</h5>
-                    <div class="col mb-5">
-                        <form action="mailto:someone@example.com" method="post" enctype="text/plain">
-                            <input type="text" name="Name" id="" class="form-control mb-3" placeholder="Nombre">
-                            <input type="text" name="LastName" id="" class="form-control mb-3" placeholder="Apellido">
-                            <input type="email" name="Email" id="" class="form-control mb-3" placeholder="Email">
+                    <div class="col-sm">
+                        <form action="{% url 'rentingplace' %}" method="POST" enctype="text/plain">
+                            {% csrf_token %}
+                            <input type="text" name="Name" id="" class="form-control mb-3" value="{{user.first_name}}" disabled>
+                            <input type="text" name="LastName" id="" class="form-control mb-3" value="{{user.last_name}}" disabled>
+                            <input type="text" name="Phone" id="" class="form-control mb-3" placeholder="Teléfono">
+                            <input type="email" name="Email" id="" class="form-control mb-3" value="{{user.email}}" disabled>
+                            <input type="text" name="Subject" id="" class="form-control mb-3" value="{{rent.title}}" disabled>
                             <textarea name="Message" id="" class="form-control mb-3" style="height:200px;" placeholder="Mensaje"></textarea>
+                            {% if user.is_authenticated %}
                             <button class="btn text-white main__color">Contactar</button>
+                            {% else %}
+                            <p>Para poder contactar debe iniciar sesión o registrarse.</p>
+                            <a href="{% url 'register' %}" class="btn text-white main__color" disabled>Registrarse</a>
+                            {% endif %}
                         </form>
                     </div>
-                    <h5 class="pb-3 main__text__color">Otras formas de contactar</h5>
-                    <div class="col">
-                        <ul class="list-group list-group-flush">
-                            <li class="list-group-item">
-                                <i class="fab fa-whatsapp-square pe-2 fs-4 main__text__color"></i><span>{{rent.phone}}</span>
-                            </li>
-                        </ul>
-                    </div>
                 </div>
+
+
           </div>
       </div>
   </div>

@@ -17,12 +17,14 @@
 <div class="w-100 bg-white pt-5 pb-5">
     <div class="container">
         <h2 class="mb-4 text-secondary text-center" data-aos="fade-right" data-aos-delay="700">Contacto</h2>
-        <form action="" data-aos="zoom-out" data-aos-delay="700">
+        <form action="{% url 'contact' %}" method="POST" data-aos="zoom-out" data-aos-delay="700">
+            {% csrf_token %}
             <input type="text" name="Name" id="" class="form-control mb-3" placeholder="Nombre">
             <input type="text" name="LastName" id="" class="form-control mb-3" placeholder="Apellido">
+            <input type="text" name="Phone" id="" class="form-control mb-3" placeholder="Phone">
             <input type="email" name="Email" id="" class="form-control mb-3" placeholder="Email">
             <input type="text" name="Subject" id="" class="form-control mb-3" placeholder="Título">
-            <textarea name="Message" id="" class="form-control mb-3" placeholder="Mensaje"></textarea>
+            <textarea name="Message" id="" class="form-control mb-3" style="height:200px;" placeholder="Mensaje"></textarea>
             <button class="btn text-white main__color">Enviar</button>
         </form>
     </div>

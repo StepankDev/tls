@@ -16,8 +16,11 @@
 
   <div class="w-100 bg-white pt-5 pb-5">
       <div class="container">
-          <h2 class="main__text__color pb-4 text-center">Nombre Apellido</h2>
-          <div class="row row-cols-1 row-cols-lg-2 bg-white rounded shadow mb-4">
+          <h2 class="main__text__color pb-4 text-center">{{partner.name}} {{partner.last_name}}</h2>
+          <div class="row bg-white rounded shadow mb-4 p-4">
+
+                <div class="row row-cols-1 row-cols-lg-2">
+
                 <div class="col-sm col-lg-4 p-4">
                     <div class="col mb-5 d-flex flex-column align-items-center justify-content-center">
                         <div class="mb-4 profile__image">
@@ -25,10 +28,7 @@
                         </div>
                         <ul class="list-group list-group-flush text-center">
                             <li class="list-group-item">
-                                <i class="fab fa-whatsapp-square pe-2 fs-5 main__text__color"></i><span>{{partner.phone}}</span>
-                            </li>
-                            <li class="list-group-item">
-                                <i class="fas fa-envelope-square pe-2 fs-5 main__text__color"></i><span>{{partner.email}}</span>
+                                <span>{{partner.name}} {{partner.last_name}}</span>
                             </li>
                         </ul>
                     </div>
@@ -37,27 +37,38 @@
                     <div class="col">
                         <p><b>Nombre:</b> {{partner.name}}</p>
                         <p><b>Apellido:</b> {{partner.last_name}}</p>
-                        <p><b>DNI / CE:</b> {{partner.phone}}</p>
                         <p><b>Razón social:</b> {{partner.business_name}}</p>
                         <p><b>Localización de negocio:</b> {{partner.business_address}}</p>
                         <p><b>Tipo de negocios:</b> {{partner.business_type}}</p>
-                        <p><b>Tipo de productio y/o servicio:</b> {{partner.business_products}}</p>
+                        <p><b>Interesado en:</b> {{partner.business_products}}</p>
                         <p><b>Referencias:</b> {{partner.business_references}}</p>
                         <p><b>Descripción:</b><br />{{partner.business_description}}</p>
                     </div>
                 </div>
-          </div>
-          <h2 class="main__text__color pb-4 text-center">Contactar al socio</h2>
-          <div class="row bg-white rounded shadow mb-4 p-5">
+
+                </div>
+                <h5 class="pb-3 main__text__color">Contactar al socio</h5>
                 <div class="col-12">
-                    <form action="mailto:someone@example.com" method="post" enctype="text/plain">
-                        <input type="text" name="Name" id="" class="form-control mb-3" placeholder="Nombre">
-                        <input type="text" name="LastName" id="" class="form-control mb-3" placeholder="Apellido">
-                        <input type="email" name="Email" id="" class="form-control mb-3" placeholder="Email">
-                        <textarea name="Message" id="" style="height:200px;" class="form-control mb-3" placeholder="Mensaje"></textarea>
+                    <form action="{% url 'partner' %}" method="POST" enctype="text/plain">
+                        {% csrf_token %}
+                        <input type="text" name="Name" id="" class="form-control mb-3" value="{{user.first_name}}" disabled>
+                        <input type="text" name="LastName" id="" class="form-control mb-3" value="{{user.last_name}}" disabled>
+                        <input type="text" name="Phone" id="" class="form-control mb-3" placeholder="Teléfono">
+                        <input type="email" name="Email" id="" class="form-control mb-3" value="{{user.email}}" disabled>
+                        <input type="text" name="Subject" id="" class="form-control mb-3" value="{{partner.name}} {{partner.last_name}}" disabled>
+                        <textarea name="Message" id="" class="form-control mb-3" style="height:200px;" placeholder="Mensaje"></textarea>
+                        {% if user.is_authenticated %}
                         <button class="btn text-white main__color">Contactar</button>
+                        {% else %}
+                        <p>Para poder contactar debe iniciar sesión o registrarse.</p>
+                        <a href="{% url 'register' %}" class="btn text-white main__color" disabled>Registrarse</a>
+                        {% endif %}
                     </form>
                 </div>
+
+
+
+
           </div>
       </div>
   </div>

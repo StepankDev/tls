@@ -4,12 +4,18 @@
 
 <!-- Intro Section -->
 
-<div class="w-100 image__background">
-  <div class="container">
-      <div class="row text-center pt-5 pb-5">
-          <h1 class="text-white" data-aos="fade-right" data-aos-delay="500">Conoce gente con locales</h1>
-      </div>
-  </div>
+<div class="w-100 pt-5 pb-0 main__color">
+    <div class="container mb-0 pb-0 pt-2">
+        <div class="row row-cols-1 row-cols-lg-2">
+            <div class="col-sm align-self-center col-lg-7 mobile__align" data-aos="fade-right" data-aos-delay="500">
+                <h1 class="mb-4 text-white">¡Conoce potenciales socios con puntos de venta disponibles para ti!</h1>
+                <a type="button" href="{% url 'register' %}" class="btn slider__btn pl-3 pr-3">Resgístrate ahora</a>
+            </div>
+            <div class="col-sm col-lg-5" data-aos="fade-left" data-aos-delay="1000">
+                <img src="{% static 'img/supuestito-renting.png' %}" alt="" class="img-fluid">
+            </div>
+        </div>
+    </div>
 </div>
 
 <!-- Mission Section -->
@@ -24,8 +30,9 @@
                     <img src="{{partner.profile_image.url}}" alt="" class="w-75">
                 </div>
               <h5>{{partner.name}} {{partner.last_name}}</h5>
-              <p>{{partner.phone}}<br>
-              {{partner.email}}<br></p>
+              <p>{{partner.business_name}}<br>
+              {{partner.business_district}}<br>
+              {{partner.business_type}}</p>
               <a href="{% url 'partner' partner.id %}" class="btn main__btn">Ver perfil</a>
             </div>
           </div>
@@ -78,7 +85,7 @@
 <div class="w-100 pt-5 pb-5 image__background">
     <div class="container text-center align-self-center">
         <h2 class="mb-4 text-white" data-aos="fade-down" data-aos-delay="500">¿Quieres formar parte de socios?</h2>
-        <a href="{% url 'partnerPublish' %}" class="btn btn-light" data-aos="fade-up" data-aos-delay="500">Entra aquí</a>
+        <a href="{% url 'partnerPricing' %}" class="btn btn-light" data-aos="fade-up" data-aos-delay="500">Entra aquí</a>
     </div>
 </div>
 {% endblock %}

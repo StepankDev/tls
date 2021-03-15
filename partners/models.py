@@ -1,6 +1,8 @@
 from django.db import models
 from datetime import datetime
 from renting.models import *
+from django.contrib.auth.models import User
+from django.conf import settings
 
 class PartnerInfo(models.Model):
     name = models.CharField(max_length=200)
@@ -10,7 +12,6 @@ class PartnerInfo(models.Model):
     email = models.EmailField()
     date_published = models.DateTimeField(default=datetime.now, blank=True)
     ruc = models.CharField(max_length=9)
-
     business_name = models.CharField(max_length=200)
     business_address = models.CharField(max_length=200)
     business_type = models.CharField(max_length=200)
