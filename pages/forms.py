@@ -42,6 +42,8 @@ class basicRent(forms.ModelForm):
     title = forms.CharField(widget=forms.TextInput(attrs={'class': 'form-control', 'placeholder': 'Título' }), label = '')
     date_published = forms.DateField(widget=forms.HiddenInput(), required=False, label = '')
     price = forms.CharField(widget=forms.TextInput(attrs={'class': 'form-control', 'placeholder': 'Precio en soles' }), label = '')
+    first_name = forms.CharField(widget=forms.TextInput(attrs={'class': 'form-control', 'placeholder': 'Nombre' }), label = '')
+    last_name = forms.CharField(widget=forms.TextInput(attrs={'class': 'form-control', 'placeholder': 'Apellido' }), label = '')
     phone = forms.CharField(widget=forms.TextInput(attrs={'class': 'form-control', 'placeholder': 'Teléfono' }), label = '')
     address = forms.CharField(widget=forms.TextInput(attrs={'class': 'form-control', 'placeholder': 'Dirección del puestito' }), label = '')
     district = forms.ModelChoiceField(queryset=District.objects.all(), empty_label=None, widget=forms.Select(attrs={'class': 'form-control' }), label = '')
@@ -53,7 +55,7 @@ class basicRent(forms.ModelForm):
     is_published = forms.BooleanField(label='', widget=forms.HiddenInput(), required=False, initial=False)
     class Meta:
         model = RentPlace
-        fields = ('title', 'price', 'phone', 'address', 'district', 'reference', 'payment', 'description', 'main_image')
+        fields = ('title', 'price', 'first_name', 'last_name', 'phone', 'address', 'district', 'reference', 'payment', 'description', 'main_image')
 
 
 class partnerForm(forms.ModelForm):

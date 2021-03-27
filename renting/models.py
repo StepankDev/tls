@@ -13,8 +13,10 @@ class PaymentMode(models.Model):
 
 class RentPlace(models.Model):
     title = models.CharField(max_length=200)
-    date_published = models.DateTimeField(auto_now=True)
+    date_published = models.DateTimeField(default=datetime.now, blank=True)
     price = models.IntegerField()
+    first_name = models.CharField(max_length=200, blank=True, null=True)
+    last_name = models.CharField(max_length=200, blank=True, null=True)
     phone = models.CharField(max_length=200, blank=True, null=True)
     address = models.CharField(max_length=200)
     district = models.ForeignKey(District, null=True, blank=True, on_delete=models.CASCADE)

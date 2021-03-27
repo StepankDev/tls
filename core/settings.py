@@ -83,7 +83,7 @@ WSGI_APPLICATION = 'core.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql',
-        'NAME': 'tls-project',
+        'NAME': 'tls',
         'USER': 'postgres',
         'PASSWORD': '5a743warg',
         'HOST': 'localhost'
