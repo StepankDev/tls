@@ -3,7 +3,7 @@
     /*--main-color: #009fa8;*/
     --secondary-button-selected:#00b8c2;
     --light-grey:#f7f7f7;
-    --secondary-color:#fff324;
+    --secondary-color:#00a85b;
   }
 
   #header {
@@ -43,6 +43,10 @@ li {
 
 .main__color__background {
     background-image:linear-gradient(#00a85b, #009fa8);
+}
+
+.secondary__color__background {
+    background:var(--secondary-color);
 }
 
 .secondary__color {

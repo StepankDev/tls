@@ -2,7 +2,7 @@
 <header>
     {% if user.is_authenticated %}
     {% else %}
-    <div class="w-100 main__color pt-3 pb-3">
+    <div class="w-100 secondary__color__background pt-3 pb-3">
         <div class="container d-flex justify-content-end">
             <div class="">
                 <a href="{% url 'login' %}" class="text-decoration-none text-white">Entrar</a>
