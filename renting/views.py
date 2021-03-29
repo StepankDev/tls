@@ -14,8 +14,6 @@ def index(request):
 
     context = {
         'rents': paged_rents,
-        'district_choices': district_choices,
-        'payment_choices': payment_choices
     }
     
     return render(request, 'pages/renting.html', context)
