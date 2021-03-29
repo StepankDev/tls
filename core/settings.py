@@ -36,7 +36,6 @@ INSTALLED_APPS = [
     'contacts.apps.ContactsConfig',
     'pages.apps.PagesConfig',
     'blog.apps.BlogConfig',
-    'partners.apps.PartnersConfig',
     'renting.apps.RentingConfig',
     'django.contrib.admin',
     'django.contrib.auth',
@@ -83,7 +82,7 @@ WSGI_APPLICATION = 'core.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql',
-        'NAME': 'tls',
+        'NAME': 'tls-project',
         'USER': 'postgres',
         'PASSWORD': '5a743warg',
         'HOST': 'localhost'

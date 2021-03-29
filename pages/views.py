@@ -4,7 +4,6 @@ from django.contrib.auth.decorators import login_required
 from blog.models import BlogPost
 from renting.models import RentPlace
 from .forms import SignUpForm
-from .forms import partnerForm
 from .forms import SignUpFormBasic
 from .forms import basicRent
 from contacts.models import *
@@ -164,9 +163,6 @@ def partnerPublish(request):
         'object': object,
         })
 
-def partnerPricing(request):
-    return render(request, 'pages/partner-pricing.html')
-
 
 
 def contact(request):
@@ -215,28 +211,4 @@ def contactRent(request):
         return redirect('rentingplace')
 
     return render(request, 'pages/renting_place.html')
-
-
-def contactPartner(request):
-    if request.method == 'POST':
-        name = request.POST['Name']
-        last_name = request.POST['LastName']
-        phone = request.POST['Phone']
-        email = request.POST['Email']
-        subject = request.POST['Subject']
-        message = request.POST['Message']
-
-        contact = Contact(name=name, last_name=last_name, phone=phone, email=email, subject=subject, message=message)
-        contact.save()
-        send_mail(
-            subject,
-            'Nuevo mensaje de usuario. ' + name + last_name + phone + email + message +' Muchas gracias',
-            '',
-            [email, 'ivanstepanchuk1994@gmail.com'],
-            fail_silently=False
-        )
-
-        return redirect('partner')
-
-    return render(request, 'pages/partner.html')
 
