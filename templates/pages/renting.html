@@ -46,8 +46,8 @@
                 {% for rent in rents %}
                 <!----- Place publication ----->
                 <div class="d-flex flex-column flex-lg-row rounded shadow bg-white p-3 mb-3" data-aos="zoom-out" data-aos-delay="700">
-                    <div class="col-12 col-lg-4 overflow-hidden me-4">
-                        <img src="{{rent.main_image.url}}" class="rent__image" alt="...">
+                    <div class="col-12 col-lg-4 overflow-hidden me-4 rent__image">
+                        <img src="{{rent.main_image.url}}" class="w-100" alt="...">
                     </div>
                     <div class="col-8">
                         <h5 class="fw-bold">S/. {{rent.price}}</h5>
