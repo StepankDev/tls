@@ -141,10 +141,9 @@ li {
 }
 
 
-
 .rent__image img {
-    height:auto !important;
-    width:100% !important;
+    height:100% !important;
+    width:auto !important;
 }
 
 .post__image {
